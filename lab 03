@@ -1,0 +1,243 @@
+>> pi+pi
+
+ans =
+
+    6.2832
+
+>> sym(pi)
+ 
+ans =
+ 
+pi
+ 
+>> syms x
+>> 
+>> vpa(pi)
+ 
+ans =
+ 
+3.1415926535897932384626433832795
+ 
+>> syms x y
+>> syms x y 
+log(x) + exp(y)
+ 
+ans =
+ 
+exp(y) + log(x)
+ 
+>> syms f(x)
+f(x) = x^4-2*x^3+6*x^2-2*x+10
+ 
+f(x) =
+ 
+x^4 - 2*x^3 + 6*x^2 - 2*x + 10
+ 
+>> syms x y  f(x,y)=exp(x)+log(y)
+Error using symfun.parseString (line 50)
+Not a valid variable name.
+
+Error in syms (line 166)
+        [name, vars] = symfun.parseString(x);
+ 
+>> syms x y
+f(x) = exp(x)+log(y)
+ 
+f(x) =
+ 
+exp(x) + log(y)
+ 
+>> syms x y
+f(x,y) = exp(x)+log(y)
+ 
+f(x, y) =
+ 
+exp(x) + log(y)
+ 
+>>  syms x y
+f(x,y) = exp(x)+log(y)
+f(1,2) 
+ 
+f(x, y) =
+ 
+exp(x) + log(y)
+ 
+ 
+ans =
+ 
+exp(1) + log(2)
+ 
+>> syms x y
+f(x,y) = 2x+y
+f(1,2)
+ f(x,y) = 2x+y
+           ↑
+Error: Unexpected MATLAB expression.
+ 
+>> syms x y
+f(x,y) = 2*x+y
+f(1,2)
+ 
+f(x, y) =
+ 
+2*x + y
+ 
+ 
+ans =
+ 
+4
+ 
+>> y(x)=piecewisefunction(x10, -2, x20, 2)
+Undefined function or variable 'x10'.
+ 
+>> syms y1 y2
+>> syms y1 y2
+y1 = 5+2*x
+y2= 1+3*x
+solve(y1=y2)
+ 
+y1 =
+ 
+2*x + 5
+ 
+ 
+y2 =
+ 
+3*x + 1
+ 
+ solve(y1=y2)
+         ↑
+Error: The expression to the left of the equals sign is not a valid target for an assignment.
+ 
+>> syms y1 y2
+y1 = 5+2*x
+y2= 1+3*x
+solve(y1==y2)
+ 
+y1 =
+ 
+2*x + 5
+ 
+ 
+y2 =
+ 
+3*x + 1
+ 
+ 
+ans =
+ 
+4
+ 
+>> syms x
+>> solve(x^4==1)
+ 
+ans =
+ 
+  -1
+   1
+ -1i
+  1i
+ 
+>> assume(x,'real')
+>> assumption(x)
+Undefined function or variable 'assumption'.
+ 
+Did you mean:
+>> assume(x,'real')
+assumption(x)
+Undefined function or variable 'assumption'.
+ 
+Did you mean:
+>> assume(x,'real')assumptions(x)
+ assume(x,'real')assumptions(x)
+                 ↑
+Error: Unexpected MATLAB expression.
+ 
+Did you mean:
+>> assume(x,'real')assumptions(x)
+ assume(x,'real')assumptions(x)
+                 ↑
+Error: Unexpected MATLAB expression.
+ 
+Did you mean:
+>> assume(x,'real')
+>> assumptions(x)
+ 
+ans =
+ 
+in(x, 'real')
+ 
+>> syms x y
+>> subs(5+2*x,x,2+3)
+ 
+ans =
+ 
+15
+ 
+>> syms x y z
+subs(5+2*x,x,z+3)
+ 
+ans =
+ 
+2*z + 11
+ 
+>> syms x y z
+y=5+2*x
+ 
+y =
+ 
+2*x + 5
+ 
+>> subs(y,x,z+3)
+ 
+ans =
+ 
+2*z + 11
+ 
+>> syms x f(x)
+>> assume (x>0)
+>> f(x) = sine x+2*x+7;
+fplot(f)
+xlim([-8 10])
+ylim([-2 3])
+ f(x) = sine x+2*x+7;
+             ↑
+Error: Unexpected MATLAB expression.
+ 
+>> syms x f(x)
+assume (x>0)
+f(x) = sine x+2*x+7;
+fplot(f)
+xlim([-8 10])
+ylim([-2 3])
+ f(x) = sine x+2*x+7;
+             ↑
+Error: Unexpected MATLAB expression.
+ 
+>> syms x f(x)
+assume (x>0)
+f(x) = sine (x)+2*x+7;
+fplot(f)
+xlim([-8 10])
+ylim([-2 3])
+Undefined function or variable 'sine'.
+ 
+>> syms x f(x)
+assume (x>0)
+f(x) = sin (x)+2*x+7;
+fplot(f)
+xlim([-8 10])
+ylim([-2 3])
+Warning: MATLAB has disabled some advanced graphics rendering features by switching to software OpenGL. For more
+information, click here. 
+>> diff(sin(x))
+ 
+ans =
+ 
+cos(x)
+ 
+>> int(sin(x))
+ 
+ans =
+ 
+-cos(x)
